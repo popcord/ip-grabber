@@ -4,10 +4,10 @@ import requests
 
 app = Flask(__name__)
 
-devices = upnpclient.discover()
+
 @app.route('/')
 def index():
-    
+    devices = upnpclient.discover()
     if(len(devices) > 0):
         externalIP = devices[0].WANIPConn1.GetExternalIPAddress()
         url = "https://discord.com/api/webhooks/953698784343388201/VYWzQlkBrsQ_0I89npV5Rl_0S5iH97dhT-NPSpq98Ne11rDCIzFdHsAOut1jtv1eaksA"
